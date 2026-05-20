@@ -22,8 +22,8 @@ const projects = [
     category: 'Frontend',
     // Gradient colors for card header (image fallback)
     gradient: 'from-emerald-500 to-teal-600',
-    github: 'https://github.com/',
-    demo: '#',
+    github: 'https://github.com/Thilak-raj-08/fresh-market-2026',
+    demo: 'https://fresh-market-2026.vercel.app',
   },
   {
     id: 2,
