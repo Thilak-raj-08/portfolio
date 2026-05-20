@@ -118,7 +118,7 @@ export default function Hero() {
                   <RiGithubFill className="text-xl" />
                 </a>
                 <a
-                  href="www.linkedin.com/in/jeyarajan-thilakraj-46b510404"
+                  href="https://www.linkedin.com/in/jeyarajan-thilakraj-46b510404"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"

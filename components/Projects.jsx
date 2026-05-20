@@ -189,7 +189,7 @@ export default function Projects() {
             Want to see more of my work?
           </p>
           <a
-            href="https://github.com/"
+            href="https://github.com/Thilak-raj-08"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 border-2 border-rose-500 text-rose-500 hover:bg-rose-500 hover:text-white rounded-md font-medium transition-all duration-200 hover:-translate-y-0.5"

@@ -42,13 +42,13 @@ const socials = [
   {
     icon: RiGithubFill,
     label: 'GitHub',
-    href: 'https://github.com/',
+    href: 'https://github.com/Thilak-raj-08',
     color: 'hover:bg-gray-900',
   },
   {
     icon: RiLinkedinBoxFill,
     label: 'LinkedIn',
-    href: 'https://linkedin.com/in/',
+    href: 'https://www.linkedin.com/in/jeyarajan-thilakraj-46b510404',
     color: 'hover:bg-blue-600',
   },
   {
