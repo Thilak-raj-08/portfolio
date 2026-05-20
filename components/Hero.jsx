@@ -150,7 +150,7 @@ export default function Hero() {
                   <div className="w-full h-full rounded-full bg-white dark:bg-gray-900 p-2">
                     <div className="relative w-full h-full rounded-full overflow-hidden">
                       <Image
-                        src="/profile.png"
+                        src="/profile.jpeg"
                         alt="Jeyarajan Thilakraj"
                         fill
                         className="object-cover"
