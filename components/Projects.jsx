@@ -45,7 +45,7 @@ const projects = [
     description:
       'A comprehensive cab booking platform with real-time booking functionality, user authentication, ride tracking, and database-driven backend system.',
     icon: RiTaxiLine,
-    tech: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS', 'Java', 'MySQL'],
+    tech: ['Next.js', 'React', 'Tailwind CSS', 'JavaScript'],
     category: 'Full Stack',
     gradient: 'from-blue-500 to-indigo-600',
     github: 'https://github.com/Thilak-raj-08/swiftcabs',
