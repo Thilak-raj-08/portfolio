@@ -32,11 +32,11 @@ const projects = [
     description:
       'A complete full-stack restaurant website with menu management, online ordering system, and admin panel for managing orders and inventory.',
     icon: RiRestaurantLine,
-    tech: ['HTML', 'CSS', 'JavaScript', 'Bootstrap', 'PHP', 'MySQL'],
+    tech: ['Laravel', 'PHP', 'Tailwind CSS', 'Alpine.js', 'Vite'],
     category: 'Full Stack',
     gradient: 'from-amber-500 to-orange-600',
-    github: 'https://github.com/',
-    demo: '#',
+    github: 'https://github.com/Thilak-raj-08/royal-food-corner',
+    demo: 'https://royal-food-corner.vercel.app',
   },
   {
     id: 3,
