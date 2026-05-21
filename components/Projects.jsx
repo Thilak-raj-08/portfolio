@@ -40,7 +40,7 @@ const projects = [
   },
   {
     id: 3,
-    title: 'Cab Booking System',
+    title: 'SwiftCabs',
     subtitle: 'Full Stack Web Application',
     description:
       'A comprehensive cab booking platform with real-time booking functionality, user authentication, ride tracking, and database-driven backend system.',
@@ -48,8 +48,8 @@ const projects = [
     tech: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS', 'Java', 'MySQL'],
     category: 'Full Stack',
     gradient: 'from-blue-500 to-indigo-600',
-    github: 'https://github.com/',
-    demo: '#',
+    github: 'https://github.com/Thilak-raj-08/swiftcabs',
+    demo: 'https://swiftcabs.vercel.app',
   },
 ]
 
