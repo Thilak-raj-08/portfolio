@@ -27,9 +27,9 @@ const projects = [
     tech: ['Next.js 16', 'React 19', 'Tailwind CSS', 'Framer Motion', 'Multi-Page SaaS'],
     category: 'Full Stack',
     gradient: 'from-rose-500 via-fuchsia-600 to-indigo-600',
-    domain: 'nexaflow-ai-thilak.vercel.app',
+    domain: 'nexaflow-ai-seven.vercel.app',
     github: 'https://github.com/Thilak-raj-08/nexaflow-ai',
-    demo: 'https://nexaflow-ai-thilak.vercel.app',
+    demo: 'https://nexaflow-ai-seven.vercel.app',
     badge: '★ Flagship Multi-Page App',
     highlights: [
       '5 dedicated routes: Home (/), AI Code Studio (/studio), Agile Kanban (/kanban), FinOps Analytics (/analytics) & Pricing (/pricing)',
