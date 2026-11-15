@@ -49,10 +49,11 @@ const terminalCommands = {
     '🎨 Design   : Figma, Adobe XD, Git/GitHub, Bitbucket',
   ],
   projects: [
-    '1. NexaFlow AI       → 5-Page AI DevTools, Agile Kanban & FinOps SaaS Platform',
-    '2. Fresh-Market      → Nuxt.js + Tailwind E-Commerce Platform (Live on Vercel)',
-    '3. Royal Food Corner → Laravel + Alpine.js Full-Stack Restaurant & Order System',
-    '4. SwiftCabs         → Next.js + React Real-Time Cab Booking Platform',
+    '1. Forno Rosso Pizza → 5-Page Artisanal Wood-Fired Pizza Ordering & Custom Builder',
+    '2. NexaFlow AI       → 5-Page AI DevTools, Agile Kanban & FinOps SaaS Platform',
+    '3. Fresh-Market      → Nuxt.js + Tailwind E-Commerce Platform (Live on Vercel)',
+    '4. Royal Food Corner → Laravel + Alpine.js Full-Stack Restaurant & Order System',
+    '5. SwiftCabs         → Next.js + React Real-Time Cab Booking Platform',
   ],
   contact: [
     '📧 Email    : jeyarajanthilakraj@gmail.com',
@@ -527,9 +528,9 @@ export default function Hero() {
               detail: 'Pearson BTEC Level 5 (BCAS)',
             },
             {
-              value: '4+ Systems',
+              value: '5+ Systems',
               label: 'Production Web Apps',
-              detail: 'AI SaaS, E-Commerce, Restaurant & Cabs',
+              detail: 'Hospitality, AI SaaS, E-Commerce & Cabs',
             },
             {
               value: '20+ Tools',

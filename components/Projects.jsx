@@ -19,6 +19,32 @@ import {
 const projects = [
   {
     id: 1,
+    title: 'Forno Rosso Pizzeria',
+    subtitle: 'Artisanal Wood-Fired Pizza Ordering & Custom Builder',
+    description:
+      'A 5-page editorial Neapolitan pizzeria and online ordering platform featuring a 4-step Custom Pizza Laboratory, 12-item filterable menu, persistent slide-over Kitchen Order Ticket, and live 485°C brick-oven baking tracker.',
+    icon: RiRestaurantLine,
+    tech: ['Next.js 16', 'React 19', 'Tailwind CSS', 'Framer Motion', 'Context State'],
+    category: 'Full Stack',
+    gradient: 'from-red-700 via-orange-600 to-amber-600',
+    domain: 'forno-rosso-pizza.vercel.app',
+    github: 'https://github.com/Thilak-raj-08/forno-rosso-pizza',
+    demo: 'https://forno-rosso-pizza.vercel.app',
+    badge: '🔥 New Multi-Page Pizzeria',
+    highlights: [
+      '5 bespoke routes: Home (/), Wood-Fired Menu (/menu), Custom Pizza Builder (/craft-your-own), 72h Dough Story (/story) & Table Reservations (/reservations)',
+      'Interactive 4-step Pizza Configurator (Dough fermentation, DOP Sauce, Campanian Cheese & Salumi Toppings) with live visual preview',
+      'Persistent Slide-Over Kitchen Order Ticket (#FR-408) with promo code (NAPOLI15) and real-time 4-stage brick oven tracker',
+      'Handcrafted Italian editorial aesthetic with custom high-resolution food & copper brick-oven photography',
+    ],
+    metrics: {
+      architecture: 'Multi-Page E-Commerce & Booking',
+      focus: 'Custom Configurator & Cart',
+      deployment: 'Vercel Edge Network',
+    },
+  },
+  {
+    id: 2,
     title: 'NexaFlow AI',
     subtitle: 'Multi-Page AI Developer Cloud & Agile SaaS Platform',
     description:
@@ -44,7 +70,7 @@ const projects = [
     },
   },
   {
-    id: 2,
+    id: 3,
     title: 'Fresh-Market',
     subtitle: 'Modern E-Commerce Web Application (Frontend)',
     description:
@@ -69,7 +95,7 @@ const projects = [
     },
   },
   {
-    id: 3,
+    id: 4,
     title: 'Royal Food Corner',
     subtitle: 'Full-Stack Restaurant & Order Management System',
     description:
@@ -94,7 +120,7 @@ const projects = [
     },
   },
   {
-    id: 4,
+    id: 5,
     title: 'SwiftCabs',
     subtitle: 'Real-Time Cab Booking Full-Stack Platform',
     description:
