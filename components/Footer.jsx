@@ -6,6 +6,8 @@ import {
   RiMailFill,
   RiHeartFill,
   RiCodeSSlashLine,
+  RiCommandLine,
+  RiDownloadLine,
 } from 'react-icons/ri'
 
 const quickLinks = [
@@ -17,11 +19,11 @@ const quickLinks = [
 ]
 
 const services = [
-  'Frontend Development',
-  'Full-Stack Development',
-  'Responsive Web Design',
-  'Database Design',
-  'UI/UX Implementation',
+  'Frontend Architecture (React / Next.js)',
+  'Vue.js & Nuxt.js Applications',
+  'Full-Stack Laravel & PHP Systems',
+  'Relational Database Design (MySQL / PostgreSQL)',
+  'Responsive UI/UX Engineering',
 ]
 
 const socials = [
@@ -46,29 +48,26 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-gray-900 text-gray-300 relative overflow-hidden">
-      {/* Decorative top border */}
-      <div className="h-1 bg-gradient-to-r from-rose-500 via-rose-600 to-rose-500"></div>
+    <footer className="bg-gray-950 text-gray-300 relative overflow-hidden border-t border-white/10">
+      {/* Top Shimmer Line */}
+      <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-rose-500 to-transparent" />
 
-      {/* Decorative background blur */}
-      <div className="absolute top-10 right-10 w-96 h-96 bg-rose-500/5 rounded-full blur-3xl"></div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
-        {/* Main Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand Column */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <a href="#home" className="inline-block mb-4">
-              <span className="text-white font-display font-bold text-2xl">
-                Thilak<span className="text-rose-500">raj</span>
+            <a href="#home" className="inline-flex items-center gap-2.5 mb-4">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-rose-500 to-rose-700 flex items-center justify-center text-white shadow-lg shadow-rose-500/30">
+                <RiCodeSSlashLine className="text-lg" />
+              </div>
+              <span className="text-white font-display font-bold text-xl">
+                Thilak<span className="text-rose-500">raj</span>.dev
               </span>
             </a>
-            <p className="text-sm text-gray-400 leading-relaxed mb-4">
-              Software Engineering Graduate & Full-Stack Developer based in
-              Jaffna, Sri Lanka. Building modern web applications with passion.
+            <p className="text-sm text-gray-400 leading-relaxed mb-5">
+              BSc (Hons) Software Engineering Graduate & Full-Stack Developer based in Jaffna, Sri Lanka. Crafting high-performance web applications.
             </p>
-            {/* Social Icons */}
-            <div className="flex gap-3">
+            <div className="flex gap-2.5">
               {socials.map((social, index) => {
                 const Icon = social.icon
                 return (
@@ -78,7 +77,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-gray-400 hover:bg-rose-500 hover:text-white transition-all duration-300 hover:-translate-y-1"
+                    className="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-900 border border-white/10 text-gray-400 hover:bg-rose-500 hover:text-white hover:border-rose-500 transition-all duration-300 hover:-translate-y-1"
                   >
                     <Icon className="text-lg" />
                   </a>
@@ -87,18 +86,17 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Navigation */}
           <div>
-            <h3 className="text-white font-display font-bold mb-4 flex items-center gap-2">
-              <span className="w-1 h-5 bg-rose-500 rounded-full"></span>
-              Quick Links
+            <h3 className="text-white font-display font-bold mb-4 text-sm uppercase tracking-wider">
+              Navigation
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-rose-500 transition-colors duration-200 inline-flex items-center gap-2 hover:translate-x-1 transform"
+                    className="text-sm text-gray-400 hover:text-rose-400 transition-colors inline-flex items-center gap-2"
                   >
                     <span className="text-rose-500">→</span>
                     {link.name}
@@ -108,75 +106,84 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Engineering Capabilities */}
           <div>
-            <h3 className="text-white font-display font-bold mb-4 flex items-center gap-2">
-              <span className="w-1 h-5 bg-rose-500 rounded-full"></span>
-              What I Do
+            <h3 className="text-white font-display font-bold mb-4 text-sm uppercase tracking-wider">
+              Capabilities
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {services.map((service, index) => (
                 <li
                   key={index}
-                  className="text-sm text-gray-400 inline-flex items-start gap-2"
+                  className="text-sm text-gray-400 flex items-start gap-2"
                 >
-                  <RiCodeSSlashLine className="text-rose-500 flex-shrink-0 mt-0.5" />
+                  <RiCodeSSlashLine className="text-rose-500 flex-shrink-0 mt-1" />
                   <span>{service}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Get In Touch */}
+          {/* Direct Contact & Resume */}
           <div>
-            <h3 className="text-white font-display font-bold mb-4 flex items-center gap-2">
-              <span className="w-1 h-5 bg-rose-500 rounded-full"></span>
-              Get In Touch
+            <h3 className="text-white font-display font-bold mb-4 text-sm uppercase tracking-wider">
+              Quick Access
             </h3>
-            <ul className="space-y-3 text-sm text-gray-400">
-              <li>
-                <p className="text-gray-500 text-xs uppercase tracking-wide mb-1">
+            <div className="space-y-3 text-sm text-gray-400 mb-5">
+              <p className="break-all">
+                <span className="block text-xs font-mono text-gray-500 uppercase">
                   Email
-                </p>
+                </span>
                 <a
                   href="mailto:jeyarajanthilakraj@gmail.com"
-                  className="hover:text-rose-500 transition-colors break-all"
+                  className="hover:text-rose-400 transition-colors"
                 >
                   jeyarajanthilakraj@gmail.com
                 </a>
-              </li>
-              <li>
-                <p className="text-gray-500 text-xs uppercase tracking-wide mb-1">
+              </p>
+              <p>
+                <span className="block text-xs font-mono text-gray-500 uppercase">
                   Phone
-                </p>
+                </span>
                 <a
                   href="tel:+94701856212"
-                  className="hover:text-rose-500 transition-colors"
+                  className="hover:text-rose-400 transition-colors"
                 >
                   +94 70 185 6212
                 </a>
-              </li>
-              <li>
-                <p className="text-gray-500 text-xs uppercase tracking-wide mb-1">
-                  Location
-                </p>
-                <span>Point Pedro, Jaffna, Sri Lanka</span>
-              </li>
-            </ul>
+              </p>
+            </div>
+
+            <a
+              href="/CV.pdf"
+              download="Jeyarajan_Thilakraj_CV.pdf"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-rose-500/15 hover:bg-rose-500 text-rose-400 hover:text-white border border-rose-500/30 text-xs font-semibold transition-all"
+            >
+              <RiDownloadLine /> Download Resume (PDF)
+            </a>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-gray-800 pt-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
-            <p className="text-gray-400 text-center sm:text-left">
-              © {currentYear} <span className="text-white font-medium">Jeyarajan Thilakraj</span>.
-              All rights reserved.
-            </p>
-            <p className="text-gray-400 flex items-center gap-1.5">
-              Made with <RiHeartFill className="text-rose-500 animate-pulse" /> using
-              <span className="text-rose-500 font-medium">Next.js</span> &
-              <span className="text-rose-500 font-medium">Tailwind CSS</span>
+        {/* Bottom Bar */}
+        <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+          <p>
+            © {currentYear}{' '}
+            <span className="text-white font-semibold">Jeyarajan Thilakraj</span>.
+            All rights reserved.
+          </p>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() =>
+                window.dispatchEvent(new CustomEvent('open-command-palette'))
+              }
+              className="inline-flex items-center gap-1.5 text-gray-400 hover:text-rose-400 font-mono transition-colors"
+            >
+              <RiCommandLine className="text-rose-500" /> Press ⌘K / Ctrl+K
+            </button>
+            <span className="hidden sm:inline text-gray-700">|</span>
+            <p className="flex items-center gap-1">
+              Engineered with <RiHeartFill className="text-rose-500" /> in{' '}
+              <span className="text-white font-medium">Next.js 16 & Framer Motion</span>
             </p>
           </div>
         </div>

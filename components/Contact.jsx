@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import {
   RiMailLine,
   RiPhoneLine,
@@ -10,40 +11,67 @@ import {
   RiSendPlaneFill,
   RiCheckLine,
   RiErrorWarningLine,
+  RiFileCopyLine,
+  RiSparklingFill,
+  RiFlashlightFill,
 } from 'react-icons/ri'
 
-// ⚠️ IMPORTANT: Formspree create panni unga endpoint URL idhula podunga
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xzdoqkpn'
 
-// Contact info cards data
 const contactInfo = [
   {
+    id: 'email',
     icon: RiMailLine,
-    label: 'Email',
+    label: 'Email Address',
     value: 'jeyarajanthilakraj@gmail.com',
     href: 'mailto:jeyarajanthilakraj@gmail.com',
+    copyable: true,
   },
   {
+    id: 'phone',
     icon: RiPhoneLine,
-    label: 'Phone',
+    label: 'Direct Phone / WhatsApp',
     value: '+94 70 185 6212',
     href: 'tel:+94701856212',
+    copyable: true,
   },
   {
+    id: 'location',
     icon: RiMapPin2Line,
     label: 'Location',
     value: 'Point Pedro, Jaffna, Sri Lanka',
     href: 'https://maps.google.com/?q=Point+Pedro+Jaffna',
+    copyable: false,
   },
 ]
 
-// Social media links
+const quickTemplates = [
+  {
+    label: '🎓 Internship Opportunity',
+    subject: 'Software Engineering Internship Opportunity',
+    message:
+      'Hi Thilakraj, we reviewed your portfolio and projects (Fresh-Market, Royal Food Corner, SwiftCabs) and would love to discuss a Software Engineering Internship opportunity with our team.',
+  },
+  {
+    label: '💼 Junior Developer Role',
+    subject: 'Full-Stack / Frontend Developer Role Inquiry',
+    message:
+      'Hi Thilakraj, we are looking for a Junior Full-Stack Developer skilled in Next.js, React, and Laravel. Let us schedule a quick introductory call!',
+  },
+  {
+    label: '🚀 Project Collaboration',
+    subject: 'Web Application Project Collaboration',
+    message:
+      'Hi Thilakraj, I have a web application project in mind and would love to collaborate with you on building it.',
+  },
+]
+
 const socials = [
   {
     icon: RiGithubFill,
     label: 'GitHub',
     href: 'https://github.com/Thilak-raj-08',
-    color: 'hover:bg-gray-900',
+    color: 'hover:bg-gray-900 dark:hover:bg-white dark:hover:text-gray-900',
   },
   {
     icon: RiLinkedinBoxFill,
@@ -66,11 +94,27 @@ export default function Contact() {
     subject: '',
     message: '',
   })
-  // status: 'idle' | 'submitting' | 'success' | 'error'
   const [status, setStatus] = useState('idle')
+  const [copiedId, setCopiedId] = useState(null)
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const applyTemplate = (tpl) => {
+    setFormData((prev) => ({
+      ...prev,
+      subject: tpl.subject,
+      message: tpl.message,
+    }))
+  }
+
+  const handleCopy = (e, id, text) => {
+    e.preventDefault()
+    e.stopPropagation()
+    navigator.clipboard.writeText(text)
+    setCopiedId(id)
+    setTimeout(() => setCopiedId(null), 2000)
   }
 
   const handleSubmit = async (e) => {
@@ -90,131 +134,198 @@ export default function Contact() {
       if (response.ok) {
         setStatus('success')
         setFormData({ name: '', email: '', subject: '', message: '' })
-        // Reset to idle after 5 seconds
         setTimeout(() => setStatus('idle'), 5000)
       } else {
         setStatus('error')
         setTimeout(() => setStatus('idle'), 5000)
       }
-    } catch (error) {
+    } catch {
       setStatus('error')
       setTimeout(() => setStatus('idle'), 5000)
     }
   }
 
   return (
-    <section id="contact" className="py-20 relative overflow-hidden">
-      {/* Decorative background */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-rose-500/5 rounded-full blur-3xl -z-10"></div>
-      <div className="absolute bottom-20 right-10 w-72 h-72 bg-rose-500/5 rounded-full blur-3xl -z-10"></div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-24 relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <p className="text-rose-500 font-medium mb-2 text-sm uppercase tracking-widest">
-            Get In Touch
-          </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-gray-900 dark:text-white mb-4">
-            Let's <span className="text-gradient">Connect</span>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-500 text-xs font-mono uppercase tracking-widest mb-3">
+            <RiSparklingFill /> Let&apos;s Build Together
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-display font-bold text-gray-900 dark:text-white mb-4">
+            Start a <span className="text-gradient">Conversation</span>
           </h2>
-          <div className="w-20 h-1 bg-rose-500 mx-auto rounded-full mb-4"></div>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Have a project in mind or just want to say hi? Drop me a message — I'd love to hear from you!
+          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
+            Whether you&apos;re hiring for a Software Developer Internship, Junior Full-Stack Engineer role, or planning a web project — I respond within 24 hours.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Main Grid: Info (Left) + Form (Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-          {/* Left: Contact Info */}
-          <div className="lg:col-span-2 space-y-6">
-            <div>
-              <h3 className="text-2xl font-display font-bold text-gray-900 dark:text-white mb-2">
-                Contact <span className="text-rose-500">Information</span>
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm mb-6">
-                Feel free to reach out through any of these channels.
-              </p>
-            </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column: Direct Channels & Availability (5 cols) */}
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-5 space-y-5"
+          >
+            <div className="glass-card rounded-3xl p-6 sm:p-8 space-y-6">
+              <div>
+                <h3 className="text-2xl font-display font-bold text-gray-900 dark:text-white mb-1">
+                  Direct <span className="text-gradient">Channels</span>
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  Click any channel to connect or copy details directly.
+                </p>
+              </div>
 
-            {/* Contact Info Cards */}
-            <div className="space-y-4">
-              {contactInfo.map((info, index) => {
-                const Icon = info.icon
-                return (
-                  <a
-                    key={index}
-                    href={info.href}
-                    target={info.label === 'Location' ? '_blank' : undefined}
-                    rel={info.label === 'Location' ? 'noopener noreferrer' : undefined}
-                    className="group flex items-start gap-4 p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-rose-500/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
-                  >
-                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-rose-50 dark:bg-rose-500/10 flex items-center justify-center group-hover:bg-rose-500 transition-colors duration-300">
-                      <Icon className="text-rose-500 text-xl group-hover:text-white transition-colors duration-300" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mb-1 uppercase tracking-wide">
-                        {info.label}
-                      </p>
-                      <p className="text-sm font-medium text-gray-900 dark:text-white break-words">
-                        {info.value}
-                      </p>
-                    </div>
-                  </a>
-                )
-              })}
-            </div>
-
-            {/* Social Links */}
-            <div className="pt-4">
-              <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
-                Follow me on:
-              </p>
-              <div className="flex gap-3">
-                {socials.map((social, index) => {
-                  const Icon = social.icon
+              <div className="space-y-3.5">
+                {contactInfo.map((info) => {
+                  const Icon = info.icon
+                  const isCopied = copiedId === info.id
                   return (
-                    <a
-                      key={index}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={social.label}
-                      className={`w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 ${social.color} hover:text-white border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}
+                    <div
+                      key={info.id}
+                      className="group flex items-center justify-between gap-3 p-4 rounded-2xl bg-gray-50/90 dark:bg-gray-900/70 border border-gray-200/70 dark:border-white/5 hover:border-rose-500/40 transition-all duration-300"
                     >
-                      <Icon className="text-xl" />
-                    </a>
+                      <a
+                        href={info.href}
+                        target={info.id === 'location' ? '_blank' : undefined}
+                        rel={info.id === 'location' ? 'noopener noreferrer' : undefined}
+                        className="flex items-center gap-3.5 min-w-0 flex-1"
+                      >
+                        <div className="w-11 h-11 rounded-xl bg-rose-500/10 text-rose-500 flex items-center justify-center flex-shrink-0 group-hover:bg-rose-500 group-hover:text-white transition-colors">
+                          <Icon className="text-xl" />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-[11px] font-mono uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                            {info.label}
+                          </p>
+                          <p className="text-sm font-semibold text-gray-900 dark:text-white truncate">
+                            {info.value}
+                          </p>
+                        </div>
+                      </a>
+
+                      {info.copyable && (
+                        <button
+                          onClick={(e) => handleCopy(e, info.id, info.value)}
+                          className="px-2.5 py-1.5 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs font-mono text-gray-600 dark:text-gray-300 hover:text-rose-500 hover:border-rose-500/40 transition-all flex items-center gap-1 flex-shrink-0"
+                          title="Copy to clipboard"
+                        >
+                          {isCopied ? (
+                            <>
+                              <RiCheckLine className="text-emerald-500" />
+                              <span className="text-emerald-500">Copied</span>
+                            </>
+                          ) : (
+                            <>
+                              <RiFileCopyLine />
+                              <span>Copy</span>
+                            </>
+                          )}
+                        </button>
+                      )}
+                    </div>
                   )
                 })}
               </div>
-            </div>
 
-            {/* Availability badge */}
-            <div className="bg-gradient-to-br from-rose-500 to-rose-700 rounded-xl p-5 text-white">
-              <div className="flex items-center gap-3 mb-2">
-                <span className="w-3 h-3 rounded-full bg-green-400 animate-pulse"></span>
-                <span className="font-semibold text-sm">Currently Available</span>
+              {/* Social Profiles */}
+              <div className="pt-2">
+                <p className="text-xs font-mono uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">
+                  Social Profiles
+                </p>
+                <div className="flex gap-3">
+                  {socials.map((social, index) => {
+                    const Icon = social.icon
+                    return (
+                      <a
+                        key={index}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.label}
+                        className={`w-11 h-11 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 ${social.color} hover:text-white border border-gray-200/70 dark:border-white/5 transition-all duration-300 hover:-translate-y-1 shadow-sm`}
+                      >
+                        <Icon className="text-xl" />
+                      </a>
+                    )
+                  })}
+                </div>
               </div>
+            </div>
+
+            {/* Availability Spotlight Card */}
+            <div className="rounded-3xl p-6 bg-gradient-to-br from-rose-500 via-rose-600 to-pink-700 text-white shadow-xl shadow-rose-500/20">
+              <div className="flex items-center gap-2.5 mb-2">
+                <span className="w-3 h-3 rounded-full bg-emerald-300 animate-ping" />
+                <span className="font-mono text-xs uppercase tracking-wider font-semibold">
+                  Immediate Availability
+                </span>
+              </div>
+              <h4 className="text-lg font-display font-bold mb-1">
+                Open for Internships & Full-Time Roles
+              </h4>
               <p className="text-sm text-white/90 leading-relaxed">
-                Open to internship and full-time opportunities. Let's build something great together!
+                Available for on-site roles in Sri Lanka, hybrid teams, or remote global internships.
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right: Contact Form */}
-          <div className="lg:col-span-3">
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-200 dark:border-gray-700">
-              <h3 className="text-2xl font-display font-bold text-gray-900 dark:text-white mb-2">
-                Send a <span className="text-rose-500">Message</span>
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
-                Fill out the form and I'll get back to you as soon as possible.
-              </p>
+          {/* Right Column: Interactive Contact Form with Quick Templates (7 cols) */}
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7"
+          >
+            <div className="glass-card rounded-3xl p-6 sm:p-8">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-6">
+                <div>
+                  <h3 className="text-2xl font-display font-bold text-gray-900 dark:text-white">
+                    Send a <span className="text-gradient">Direct Message</span>
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    Use a 1-click quick template below or write your own message.
+                  </p>
+                </div>
+              </div>
+
+              {/* 1-Click Recruiter Quick Fill Pills */}
+              <div className="mb-6">
+                <p className="text-xs font-mono uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2 flex items-center gap-1.5">
+                  <RiFlashlightFill className="text-amber-500" /> Quick-Fill Templates:
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {quickTemplates.map((tpl, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => applyTemplate(tpl)}
+                      className="px-3 py-1.5 rounded-xl text-xs font-medium bg-rose-500/10 hover:bg-rose-500 text-rose-500 hover:text-white border border-rose-500/20 transition-all duration-200"
+                    >
+                      {tpl.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
 
               <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Name + Email Row */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-xs font-mono uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2"
+                    >
                       Your Name <span className="text-rose-500">*</span>
                     </label>
                     <input
@@ -224,12 +335,15 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      placeholder="John Doe"
-                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-all"
+                      placeholder="Jane Doe"
+                      className="w-full px-4 py-3 bg-gray-50/90 dark:bg-gray-900/90 border border-gray-200 dark:border-gray-700/80 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-all text-sm"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-xs font-mono uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2"
+                    >
                       Your Email <span className="text-rose-500">*</span>
                     </label>
                     <input
@@ -239,15 +353,17 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      placeholder="john@example.com"
-                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-all"
+                      placeholder="jane@company.com"
+                      className="w-full px-4 py-3 bg-gray-50/90 dark:bg-gray-900/90 border border-gray-200 dark:border-gray-700/80 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-all text-sm"
                     />
                   </div>
                 </div>
 
-                {/* Subject */}
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label
+                    htmlFor="subject"
+                    className="block text-xs font-mono uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2"
+                  >
                     Subject <span className="text-rose-500">*</span>
                   </label>
                   <input
@@ -257,14 +373,16 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    placeholder="Job opportunity / Project inquiry / etc."
-                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-all"
+                    placeholder="Software Engineering Internship / Project Inquiry"
+                    className="w-full px-4 py-3 bg-gray-50/90 dark:bg-gray-900/90 border border-gray-200 dark:border-gray-700/80 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-all text-sm"
                   />
                 </div>
 
-                {/* Message */}
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-xs font-mono uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2"
+                  >
                     Your Message <span className="text-rose-500">*</span>
                   </label>
                   <textarea
@@ -274,21 +392,20 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows="5"
-                    placeholder="Tell me about your project or just say hi!"
-                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-all resize-none"
+                    placeholder="Tell me about the role, team, or project..."
+                    className="w-full px-4 py-3 bg-gray-50/90 dark:bg-gray-900/90 border border-gray-200 dark:border-gray-700/80 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-all resize-none text-sm"
                   />
                 </div>
 
-                {/* Submit Button */}
                 <button
                   type="submit"
                   disabled={status === 'submitting'}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 bg-rose-600 hover:bg-rose-700 disabled:bg-rose-400 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-all duration-200 shadow-lg shadow-rose-500/30 hover:-translate-y-0.5"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 disabled:opacity-60 text-white font-semibold rounded-xl transition-all duration-200 shadow-xl shadow-rose-500/30 hover:-translate-y-0.5 text-sm"
                 >
                   {status === 'submitting' ? (
                     <>
-                      <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-                      Sending...
+                      <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      Sending Message...
                     </>
                   ) : (
                     <>
@@ -298,38 +415,36 @@ export default function Contact() {
                   )}
                 </button>
 
-                {/* Success Message */}
                 {status === 'success' && (
-                  <div className="flex items-start gap-3 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 rounded-lg animate-fadeIn">
-                    <RiCheckLine className="text-green-500 text-xl flex-shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-3 p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl">
+                    <RiCheckLine className="text-emerald-500 text-xl flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-medium text-green-800 dark:text-green-300">
-                        Message sent successfully!
+                      <p className="font-semibold text-emerald-600 dark:text-emerald-400 text-sm">
+                        Message delivered!
                       </p>
-                      <p className="text-sm text-green-700 dark:text-green-400 mt-1">
-                        Thanks for reaching out. I'll get back to you soon!
+                      <p className="text-xs text-emerald-600/80 dark:text-emerald-400/80 mt-0.5">
+                        Thank you for reaching out — I will reply shortly.
                       </p>
                     </div>
                   </div>
                 )}
 
-                {/* Error Message */}
                 {status === 'error' && (
-                  <div className="flex items-start gap-3 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 rounded-lg animate-fadeIn">
-                    <RiErrorWarningLine className="text-red-500 text-xl flex-shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-3 p-4 bg-rose-500/10 border border-rose-500/30 rounded-xl">
+                    <RiErrorWarningLine className="text-rose-500 text-xl flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-medium text-red-800 dark:text-red-300">
-                        Something went wrong.
+                      <p className="font-semibold text-rose-600 dark:text-rose-400 text-sm">
+                        Could not send via form right now.
                       </p>
-                      <p className="text-sm text-red-700 dark:text-red-400 mt-1">
-                        Please try again or email me directly at jeyarajanthilakraj@gmail.com
+                      <p className="text-xs text-rose-600/80 dark:text-rose-400/80 mt-0.5">
+                        Please email me directly at jeyarajanthilakraj@gmail.com
                       </p>
                     </div>
                   </div>
                 )}
               </form>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
