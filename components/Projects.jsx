@@ -9,6 +9,7 @@ import {
   RiRestaurantLine,
   RiTaxiLine,
   RiCpuLine,
+  RiGraduationCapLine,
   RiStackLine,
   RiCheckboxCircleFill,
   RiCloseLine,
@@ -19,6 +20,32 @@ import {
 const projects = [
   {
     id: 1,
+    title: 'Veritas Campus ERP',
+    subtitle: 'Multi-Page University Student Management, Attendance & Transcript System',
+    description:
+      'A 5-page institutional student information system engineered for BSc (Hons) and Pearson BTEC HND faculties—featuring a live Scholar Directory & Matriculation CRUD engine, Accredited Degree Modules Catalog, Daily Lecture Attendance Roll-Call Register, and an Interactive Senate Examination Gradebook with printable official transcripts.',
+    icon: RiGraduationCapLine,
+    tech: ['Next.js 16', 'React 19', 'Tailwind CSS', 'Framer Motion', 'Academic ERP State'],
+    category: 'Full Stack',
+    gradient: 'from-slate-900 via-blue-950 to-red-900',
+    domain: 'veritas-student-erp.vercel.app',
+    github: 'https://github.com/Thilak-raj-08/veritas-student-erp',
+    demo: 'https://veritas-student-erp.vercel.app',
+    badge: '🎓 New Institutional ERP',
+    highlights: [
+      '5 institutional routes: Registry Overview (/), Student Directory (/students), Accredited Modules (/courses), Attendance Roll-Call (/attendance) & Exam Transcripts (/grades)',
+      'Interactive Scholar Matriculation CRUD & Dossier inspector with automatic student ID generation and Honours classification',
+      'Live Lecture Roll-Call Attendance Sheet (Present, Late, Excused, Absent) with instant batch marking and eligibility alerts',
+      'Real-time Examination Gradebook with live marks sliders, auto-recalculated GPA/Honours class, and printable Senate Transcript',
+    ],
+    metrics: {
+      architecture: 'Multi-Page Institutional ERP',
+      focus: 'Student Records, Roll-Call & GPA Engine',
+      deployment: 'Vercel Edge Network',
+    },
+  },
+  {
+    id: 2,
     title: 'Forno Rosso Pizzeria',
     subtitle: 'Artisanal Wood-Fired Pizza Ordering & Custom Builder',
     description:
@@ -44,7 +71,7 @@ const projects = [
     },
   },
   {
-    id: 2,
+    id: 3,
     title: 'NexaFlow AI',
     subtitle: 'Multi-Page AI Developer Cloud & Agile SaaS Platform',
     description:
@@ -70,7 +97,7 @@ const projects = [
     },
   },
   {
-    id: 3,
+    id: 4,
     title: 'Fresh-Market',
     subtitle: 'Modern E-Commerce Web Application (Frontend)',
     description:
@@ -95,7 +122,7 @@ const projects = [
     },
   },
   {
-    id: 4,
+    id: 5,
     title: 'Royal Food Corner',
     subtitle: 'Full-Stack Restaurant & Order Management System',
     description:
@@ -120,7 +147,7 @@ const projects = [
     },
   },
   {
-    id: 5,
+    id: 6,
     title: 'SwiftCabs',
     subtitle: 'Real-Time Cab Booking Full-Stack Platform',
     description:

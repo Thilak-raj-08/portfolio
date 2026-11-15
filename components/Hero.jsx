@@ -49,11 +49,12 @@ const terminalCommands = {
     '🎨 Design   : Figma, Adobe XD, Git/GitHub, Bitbucket',
   ],
   projects: [
-    '1. Forno Rosso Pizza → 5-Page Artisanal Wood-Fired Pizza Ordering & Custom Builder',
-    '2. NexaFlow AI       → 5-Page AI DevTools, Agile Kanban & FinOps SaaS Platform',
-    '3. Fresh-Market      → Nuxt.js + Tailwind E-Commerce Platform (Live on Vercel)',
-    '4. Royal Food Corner → Laravel + Alpine.js Full-Stack Restaurant & Order System',
-    '5. SwiftCabs         → Next.js + React Real-Time Cab Booking Platform',
+    '1. Veritas Campus ERP → 5-Page University Student Management, Roll-Call & Transcript ERP',
+    '2. Forno Rosso Pizza  → 5-Page Artisanal Wood-Fired Pizza Ordering & Custom Builder',
+    '3. NexaFlow AI        → 5-Page AI DevTools, Agile Kanban & FinOps SaaS Platform',
+    '4. Fresh-Market       → Nuxt.js + Tailwind E-Commerce Platform (Live on Vercel)',
+    '5. Royal Food Corner  → Laravel + Alpine.js Full-Stack Restaurant & Order System',
+    '6. SwiftCabs          → Next.js + React Real-Time Cab Booking Platform',
   ],
   contact: [
     '📧 Email    : jeyarajanthilakraj@gmail.com',
@@ -528,9 +529,9 @@ export default function Hero() {
               detail: 'Pearson BTEC Level 5 (BCAS)',
             },
             {
-              value: '5+ Systems',
+              value: '6+ Systems',
               label: 'Production Web Apps',
-              detail: 'Hospitality, AI SaaS, E-Commerce & Cabs',
+              detail: 'University ERP, Hospitality, AI SaaS & E-Commerce',
             },
             {
               value: '20+ Tools',

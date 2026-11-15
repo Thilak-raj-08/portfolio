@@ -63,7 +63,7 @@ export default function CommandPalette({ isOpen, onClose }) {
         id: 'nav-projects',
         category: 'Navigation',
         title: 'Explore Featured Projects',
-        subtitle: 'Fresh-Market, Royal Food Corner & SwiftCabs case studies',
+        subtitle: 'Veritas Campus ERP, Forno Rosso Pizza, NexaFlow AI & more',
         icon: RiFolderLine,
         shortcut: 'G P',
         perform: () => {
