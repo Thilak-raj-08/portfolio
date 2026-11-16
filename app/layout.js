@@ -1,27 +1,5 @@
 import './globals.css'
-import { Inter, Poppins, JetBrains_Mono } from 'next/font/google'
 import { ThemeProvider } from '@/components/ThemeProvider'
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-inter',
-  display: 'swap',
-})
-
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-poppins',
-  display: 'swap',
-})
-
-const jetbrains = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  variable: '--font-jetbrains',
-  display: 'swap',
-})
 
 export const metadata = {
   title: 'Jeyarajan Thilakraj | Software Engineer & Full-Stack Developer',
@@ -31,11 +9,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${poppins.variable} ${jetbrains.variable} scroll-smooth`}
-      suppressHydrationWarning
-    >
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="bg-slate-50 dark:bg-[#070b14] text-gray-900 dark:text-gray-100 transition-colors duration-300 font-sans antialiased selection:bg-rose-500/20 selection:text-rose-500">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
