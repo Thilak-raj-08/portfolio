@@ -10,6 +10,7 @@ import {
   RiTaxiLine,
   RiCpuLine,
   RiGraduationCapLine,
+  RiRadarLine,
   RiStackLine,
   RiCheckboxCircleFill,
   RiCloseLine,
@@ -20,6 +21,32 @@ import {
 const projects = [
   {
     id: 1,
+    title: 'Aetheris Command OS',
+    subtitle: 'Multi-Page Global Treasury, Fleet Logistics & Cloud Telemetry Dashboard',
+    description:
+      'A 5-page institutional operations and financial treasury dashboard featuring real-time ISO-20022 SWIFT gpi wire settlements, multi-currency conversion (USD/EUR/GBP/LKR), maritime & air cargo cold-chain telemetry, and a 6-region bare-metal cloud SLA matrix.',
+    icon: RiRadarLine,
+    tech: ['Next.js 16', 'React 19', 'Tailwind CSS', 'Framer Motion', 'Telemetry State'],
+    category: 'Full Stack',
+    gradient: 'from-emerald-800 via-teal-900 to-slate-950',
+    domain: 'aetheris-command-dashboard.vercel.app',
+    github: 'https://github.com/Thilak-raj-08/aetheris-command-dashboard',
+    demo: 'https://aetheris-command-dashboard.vercel.app',
+    badge: '⚡ New Enterprise Dashboard',
+    highlights: [
+      '5 command modules: Executive Overview (/), Treasury Ledger (/revenue), Fleet Logistics (/logistics), Cloud SLA (/infrastructure) & RBAC Security (/settings)',
+      'Interactive SWIFT gpi Wire Transfer dispatch modal & searchable ledger with live multi-currency switcher (USD, EUR, GBP, LKR)',
+      'Global Maritime & Air Cargo Manifest tracker with customs release workflow and IoT cold-chain temperature gauges',
+      '6-Region bare-metal infrastructure monitor with interactive BGP load-spike simulation and node healing',
+    ],
+    metrics: {
+      architecture: 'Multi-Page FinOps & Fleet OS',
+      focus: 'Real-Time Telemetry & Treasury',
+      deployment: 'Vercel Edge Network',
+    },
+  },
+  {
+    id: 2,
     title: 'Veritas Campus ERP',
     subtitle: 'Multi-Page University Student Management, Attendance & Transcript System',
     description:
@@ -45,7 +72,7 @@ const projects = [
     },
   },
   {
-    id: 2,
+    id: 3,
     title: 'Forno Rosso Pizzeria',
     subtitle: 'Artisanal Wood-Fired Pizza Ordering & Custom Builder',
     description:
@@ -71,7 +98,7 @@ const projects = [
     },
   },
   {
-    id: 3,
+    id: 4,
     title: 'NexaFlow AI',
     subtitle: 'Multi-Page AI Developer Cloud & Agile SaaS Platform',
     description:
@@ -97,7 +124,7 @@ const projects = [
     },
   },
   {
-    id: 4,
+    id: 5,
     title: 'Fresh-Market',
     subtitle: 'Modern E-Commerce Web Application (Frontend)',
     description:
@@ -122,7 +149,7 @@ const projects = [
     },
   },
   {
-    id: 5,
+    id: 6,
     title: 'Royal Food Corner',
     subtitle: 'Full-Stack Restaurant & Order Management System',
     description:
@@ -147,7 +174,7 @@ const projects = [
     },
   },
   {
-    id: 6,
+    id: 7,
     title: 'SwiftCabs',
     subtitle: 'Real-Time Cab Booking Full-Stack Platform',
     description:
