@@ -49,13 +49,14 @@ const terminalCommands = {
     '🎨 Design   : Figma, Adobe XD, Git/GitHub, Bitbucket',
   ],
   projects: [
-    '1. Aetheris Command  → 5-Page Global Treasury, Fleet Logistics & Cloud SLA Dashboard',
-    '2. Veritas Campus ERP → 5-Page University Student Management, Roll-Call & Transcript ERP',
-    '3. Forno Rosso Pizza  → 5-Page Artisanal Wood-Fired Pizza Ordering & Custom Builder',
-    '4. NexaFlow AI        → 5-Page AI DevTools, Agile Kanban & FinOps SaaS Platform',
-    '5. Fresh-Market       → Nuxt.js + Tailwind E-Commerce Platform (Live on Vercel)',
-    '6. Royal Food Corner  → Laravel + Alpine.js Full-Stack Restaurant & Order System',
-    '7. SwiftCabs          → Next.js + React Real-Time Cab Booking Platform',
+    '1. Volt & Grain Gear → 5-Page MagSafe Mobile Accessories Store & EDC Kit Builder',
+    '2. Aetheris Command  → 5-Page Global Treasury, Fleet Logistics & Cloud SLA Dashboard',
+    '3. Veritas Campus ERP → 5-Page University Student Management, Roll-Call & Transcript ERP',
+    '4. Forno Rosso Pizza  → 5-Page Artisanal Wood-Fired Pizza Ordering & Custom Builder',
+    '5. NexaFlow AI        → 5-Page AI DevTools, Agile Kanban & FinOps SaaS Platform',
+    '6. Fresh-Market       → Nuxt.js + Tailwind E-Commerce Platform (Live on Vercel)',
+    '7. Royal Food Corner  → Laravel + Alpine.js Full-Stack Restaurant & Order System',
+    '8. SwiftCabs          → Next.js + React Real-Time Cab Booking Platform',
   ],
   contact: [
     '📧 Email    : jeyarajanthilakraj@gmail.com',
@@ -530,9 +531,9 @@ export default function Hero() {
               detail: 'Pearson BTEC Level 5 (BCAS)',
             },
             {
-              value: '7+ Systems',
+              value: '8+ Systems',
               label: 'Production Web Apps',
-              detail: 'FinOps Dashboard, University ERP, Hospitality & SaaS',
+              detail: 'Mobile Gear Store, FinOps OS, Campus ERP & SaaS',
             },
             {
               value: '20+ Tools',

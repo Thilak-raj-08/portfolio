@@ -11,6 +11,7 @@ import {
   RiCpuLine,
   RiGraduationCapLine,
   RiRadarLine,
+  RiSmartphoneLine,
   RiStackLine,
   RiCheckboxCircleFill,
   RiCloseLine,
@@ -21,6 +22,32 @@ import {
 const projects = [
   {
     id: 1,
+    title: 'Volt & Grain Mobile Gear',
+    subtitle: 'Multi-Page MagSafe Accessories Store, EDC Kit Builder & Qi2 Lab',
+    description:
+      'A 5-page industrial mobile accessories e-commerce storefront featuring 600D Aramid MagSafe cases, 100W GaN III chargers, Qi2 magnetic power banks, a 4-step Custom EDC Bundle Configurator (-20% tier discount), and an interactive Qi2 & Wattage telemetry lab.',
+    icon: RiSmartphoneLine,
+    tech: ['Next.js 16', 'React 19', 'Tailwind CSS', 'Framer Motion', 'E-Commerce State'],
+    category: 'Full Stack',
+    gradient: 'from-orange-600 via-amber-700 to-stone-900',
+    domain: 'kinetix-mobile-gear.vercel.app',
+    github: 'https://github.com/Thilak-raj-08/kinetix-mobile-gear',
+    demo: 'https://kinetix-mobile-gear.vercel.app',
+    badge: '📱 New Mobile Gear Store',
+    highlights: [
+      '5 dedicated routes: Storefront (/), Full Gear Catalog (/shop), 4-Piece EDC Bundle Builder (/bundle), Qi2 & Wattage Lab (/compatibility) & Live Order Tracker (/track-order)',
+      'Interactive 4-step Everyday Carry Kit Configurator with automatic 20% MAGSAFE20 bundle discount and slide-over bag drawer',
+      'Device fitment switcher (iPhone 16 Pro, Galaxy S25 Ultra, Pixel 9 Pro XL) and interactive GaN charging curve analyzer',
+      'Tactile industrial design with custom studio product photography and serialized waybill dispatch tracking',
+    ],
+    metrics: {
+      architecture: 'Multi-Page Hardware E-Commerce',
+      focus: 'Bundle Builder & Qi2 Telemetry',
+      deployment: 'Vercel Edge Network',
+    },
+  },
+  {
+    id: 2,
     title: 'Aetheris Command OS',
     subtitle: 'Multi-Page Global Treasury, Fleet Logistics & Cloud Telemetry Dashboard',
     description:
@@ -46,7 +73,7 @@ const projects = [
     },
   },
   {
-    id: 2,
+    id: 3,
     title: 'Veritas Campus ERP',
     subtitle: 'Multi-Page University Student Management, Attendance & Transcript System',
     description:
@@ -72,7 +99,7 @@ const projects = [
     },
   },
   {
-    id: 3,
+    id: 4,
     title: 'Forno Rosso Pizzeria',
     subtitle: 'Artisanal Wood-Fired Pizza Ordering & Custom Builder',
     description:
@@ -98,7 +125,7 @@ const projects = [
     },
   },
   {
-    id: 4,
+    id: 5,
     title: 'NexaFlow AI',
     subtitle: 'Multi-Page AI Developer Cloud & Agile SaaS Platform',
     description:
@@ -124,7 +151,7 @@ const projects = [
     },
   },
   {
-    id: 5,
+    id: 6,
     title: 'Fresh-Market',
     subtitle: 'Modern E-Commerce Web Application (Frontend)',
     description:
@@ -149,7 +176,7 @@ const projects = [
     },
   },
   {
-    id: 6,
+    id: 7,
     title: 'Royal Food Corner',
     subtitle: 'Full-Stack Restaurant & Order Management System',
     description:
@@ -174,7 +201,7 @@ const projects = [
     },
   },
   {
-    id: 7,
+    id: 8,
     title: 'SwiftCabs',
     subtitle: 'Real-Time Cab Booking Full-Stack Platform',
     description:
